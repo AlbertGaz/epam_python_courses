@@ -1,0 +1,3 @@
+one non-ascii char on every new line is \n
+ن here is persian letter n and as always \n
+here is chinese Hieroglyphs 憂鬱 that mean depression +2 non+ascii characters
