@@ -68,7 +68,7 @@ def test_count_punctuation_chars(file_path: str, expected_result: int):
 @pytest.mark.parametrize(
     ("file_path", "expected_result"),
     [
-        ("test_task1_sample5.txt", 6),
+        ("test/test2/test_samples_task1/test_task1_sample5.txt", 6),
     ],
 )
 def test_count_non_ascii_chars(file_path: str, expected_result: int):
