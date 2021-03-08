@@ -24,7 +24,7 @@ from hw.hw1.task4 import check_sum_of_four
         ),
     ],
 )
-def test_check_sum_of_four(a: list, b: list, c: list, d: list, expected_result: bool):
+def test_check_sum_of_four(a: list, b: list, c: list, d: list, expected_result: int):
     actual_result = check_sum_of_four(a, b, c, d)
 
     assert actual_result == expected_result
