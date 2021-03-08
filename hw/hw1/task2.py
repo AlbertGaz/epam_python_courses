@@ -2,10 +2,11 @@
 
 Check sequence for Fibonacciness.
 """
+from typing import Generator
 from typing import Sequence
 
 
-def fib_gen() -> int:
+def fib_gen() -> Generator[int, None, None]:
     """Fibonacci generator.
 
     Returns: elements of fibonacci sequence
