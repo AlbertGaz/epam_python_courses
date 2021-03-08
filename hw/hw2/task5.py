@@ -15,17 +15,11 @@ def custom_range(iterat: (list, str), *arg: (str, int)) -> list:
 
     """
     if len(arg) == 3:
-        start = arg[0]
-        end = arg[1]
-        step = arg[2]
+        start, end, step = arg
     elif len(arg) == 2:
-        start = arg[0]
-        end = arg[1]
-        step = 1
+        start, end, step = *arg, 1
     else:
-        start = 0
-        end = arg[0]
-        step = 1
+        start, end, step = 0, arg, 1
     res = []
     for i in range(iterat.index(start), iterat.index(end), step):
         if i >= iterat.index(end) and step > 0 or i < iterat.index(end) and step < 0:
