@@ -16,15 +16,16 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
 
     """
     with open(file_path, encoding="utf-8") as f:
+        data = f.readlines()
         max_words = ["" for _ in range(10)]
-        for line in f:
-            for word in line.split():
-                for i in range(10):
-                    if len(set(word)) > len(set(max_words[i])):
-                        max_words[i] = word
-                        max_words.sort(key=lambda x: len(set(x)))
-                        break
-        return max_words
+    for line in data:
+        for word in line.split():
+            for i in range(10):
+                if len(set(word)) > len(set(max_words[i])):
+                    max_words[i] = word
+                    max_words.sort(key=lambda x: len(set(x)))
+                    break
+    return max_words
 
 
 def get_rarest_char(file_path: str) -> str:
@@ -38,12 +39,12 @@ def get_rarest_char(file_path: str) -> str:
     """
     with open(file_path, encoding="utf-8") as f:
         text = "".join(f.read().split())  # get rid of white space in text string
-        text_chars = set(text)
-        min_char_count = float("inf")
-        for char in text_chars:
-            if text.count(char) < min_char_count:
-                min_char_count = text.count(char)
-                min_char = char
+    text_chars = set(text)
+    min_char_count = float("inf")
+    for char in text_chars:
+        if text.count(char) < min_char_count:
+            min_char_count = text.count(char)
+            min_char = char
     return min_char
 
 
@@ -58,10 +59,10 @@ def count_punctuation_chars(file_path: str) -> int:
     """
     with open(file_path, encoding="utf-8") as f:
         text = f.read()
-        pncts = string.punctuation
-        pnct_n = 0
-        for pnct in pncts:
-            pnct_n += text.count(pnct)
+    pncts = string.punctuation
+    pnct_n = 0
+    for pnct in pncts:
+        pnct_n += text.count(pnct)
     return pnct_n
 
 
@@ -76,11 +77,11 @@ def count_non_ascii_chars(file_path: str) -> int:
     """
     with open(file_path, encoding="utf-8") as f:
         text = f.read()
-        ascii_range = range(32, 256)
-        non_ascii_count = 0
-        for char in text:
-            if ord(char) not in ascii_range:
-                non_ascii_count += 1
+    ascii_range = range(32, 256)
+    non_ascii_count = 0
+    for char in text:
+        if ord(char) not in ascii_range:
+            non_ascii_count += 1
     return non_ascii_count
 
 
@@ -95,9 +96,9 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     """
     with open(file_path, encoding="utf-8") as f:
         text = f.read()
-        ascii_range = range(32, 256)
-        non_ascii = {}
-        for char in text:
-            if ord(char) not in ascii_range:
-                non_ascii[char] = non_ascii.get(char, 0) + 1
+    ascii_range = range(32, 256)
+    non_ascii = {}
+    for char in text:
+        if ord(char) not in ascii_range:
+            non_ascii[char] = non_ascii.get(char, 0) + 1
     return sorted(non_ascii, key=non_ascii.get)[-1]
