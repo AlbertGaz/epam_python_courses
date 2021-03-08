@@ -17,15 +17,9 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
     """
     with open(file_path, encoding="utf-8") as f:
         data = f.readlines()
-        max_words = ["" for _ in range(10)]
-    for line in data:
-        for word in line.split():
-            for i in range(10):
-                if len(set(word)) > len(set(max_words[i])):
-                    max_words[i] = word
-                    max_words.sort(key=lambda x: len(set(x)))
-                    break
-    return max_words
+    words = [word for line in data for word in line.split()]
+    sort_words = sorted(words, key=lambda x: len(set(x)))
+    return sort_words[-10:]
 
 
 def get_rarest_char(file_path: str) -> str:

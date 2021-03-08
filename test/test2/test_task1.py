@@ -18,10 +18,10 @@ from hw.hw2.task1 import get_rarest_char
             "test/test2/test_samples_task1/test_task1_sample1.txt",
             [
                 "asd",
-                "sdaf",
                 "1234",
-                "bsfddsfaf",
+                "sdaf",
                 "4567g",
+                "bsfddsfaf",
                 "987654",
                 "fdsgjl?']",
                 "/>,pfdvgbtn+-fdvbr",
@@ -31,7 +31,7 @@ from hw.hw2.task1 import get_rarest_char
         ),
         (
             "test/test2/test_samples_task1/test_task1_sample2.txt",
-            ["", "", "", "", "", "", "", "", "", ""],
+            [],
         ),
     ],
 )
