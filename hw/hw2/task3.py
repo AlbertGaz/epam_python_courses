@@ -15,7 +15,4 @@ def combinations(*args: List[Any]) -> List[List]:
     Returns: list of combination lists
 
     """
-    res = []
-    for i in product(*args):
-        res.append(list(i))
-    return res
+    return [list(i) for i in product(*args)]
