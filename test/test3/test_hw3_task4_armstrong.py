@@ -4,7 +4,7 @@ Define armstrong.
 """
 import pytest
 
-from hw.hw3.task4 import is_armstrong
+from hw.hw3.hw3_task4 import is_armstrong
 
 
 @pytest.mark.parametrize(

@@ -2,7 +2,7 @@
 
 Write cache decorator with parameter times, that describe number of repetition.
 """
-from hw.hw3.task1 import cache
+from hw.hw3.hw3_task1 import cache
 
 
 @cache(3)

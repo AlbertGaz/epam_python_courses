@@ -4,7 +4,7 @@ Correct from bugs script.
 """
 import pytest
 
-from hw.hw3.task3 import make_filter
+from hw.hw3.hw3_task3 import make_filter
 
 sample_data = [
     {

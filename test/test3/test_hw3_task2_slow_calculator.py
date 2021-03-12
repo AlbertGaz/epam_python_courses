@@ -2,7 +2,7 @@
 
 Test process parallelization.
 """
-from hw.hw3.task2 import parallelized_slow_function
+from hw.hw3.hw3_task2 import parallelized_slow_function
 
 
 def test_slow_calculate():
