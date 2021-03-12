@@ -2,7 +2,7 @@
 
 Write parametrize decorator that caches function data.
 """
-from collections import Callable
+from collections.abc import Callable
 
 
 def cache(times: int) -> Callable:
