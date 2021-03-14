@@ -15,12 +15,12 @@ def fizzbuzz(n: int) -> List[str]:
 
     """
     return [
-        "fizz"
-        if i % 3 == 0 and i % 5 != 0
-        else "bazz"
-        if i % 3 != 0 and i % 5 == 0
-        else "fizzbuzz"
-        if i % 3 == 0 and i % 5 == 0
+        "fizzbuzz"
+        if i % 15 == 0
+        else "fizz"
+        if i % 3 == 0
+        else "buzz"
+        if i % 5 == 0
         else i
         for i in range(1, n + 1)
     ]
