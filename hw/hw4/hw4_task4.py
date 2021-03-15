@@ -45,16 +45,7 @@ def fizzbuzz(n: int) -> List[str]:
     """
     if type(n) != int or n < 1:
         raise ValueError("Input Error!")
-    return [
-        "fizzbuzz"
-        if i % 15 == 0
-        else "fizz"
-        if i % 3 == 0
-        else "buzz"
-        if i % 5 == 0
-        else i
-        for i in range(1, n + 1)
-    ]
+    return ["fizz" * (i % 3 == 0) + "buzz" * (i % 5 == 0) or i for i in range(1, n + 1)]
 
 
 if __name__ == "__main__":
