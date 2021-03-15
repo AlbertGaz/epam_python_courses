@@ -14,7 +14,5 @@ def my_precious_logger(text: str) -> None:
     Returns: write to stderr if starts with error, else to stdout
 
     """
-    if text.startswith("error"):
-        sys.stderr.write(text)
-    else:
-        sys.stdout.write(text)
+    dataflow = sys.stderr if text.startswith("error") else sys.stdout
+    dataflow.write(text)
