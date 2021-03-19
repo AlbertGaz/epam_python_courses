@@ -5,7 +5,7 @@ Create three classes and connections between them.
 from __future__ import annotations
 
 import datetime
-from sys import stdout
+import sys
 
 
 class Homework:
@@ -48,7 +48,7 @@ class Student:
         if Homework.is_active(hw):
             return hw
         else:
-            stdout.write("You are Late!")
+            sys.stdout.write("You are late!")
             return None
 
 
