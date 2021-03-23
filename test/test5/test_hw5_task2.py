@@ -38,7 +38,7 @@ def test_result(args, expected_result):
     [
         (
             custom_sum.__doc__,
-            """This function can sum any objects which have __add___""",
+            """Sum any objects which have __add__.""",
         ),
         (custom_sum.__name__, "custom_sum"),
     ],
