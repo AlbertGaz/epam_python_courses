@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import datetime
 import sys
+from typing import Optional
 
 
 class Homework:
@@ -32,7 +33,7 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
 
-    def do_homework(self, hw: Homework) -> (Homework, None):
+    def do_homework(self, hw: Homework) -> Optional[Homework]:
         """Check if hw is in progress - True, else print You are Late.
 
         Args:
