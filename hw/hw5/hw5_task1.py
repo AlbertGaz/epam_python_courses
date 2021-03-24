@@ -22,11 +22,7 @@ class Homework:
         Returns: bool
 
         """
-        if (
-            int(self.deadline.total_seconds()) > 0
-        ):  # checks if total seconds in time to deadline is > 0
-            return True
-        return False
+        return int(self.deadline.total_seconds()) > 0
 
 
 class Student:
