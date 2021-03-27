@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import datetime
 from collections import defaultdict
-from typing import Optional
+from typing import NoReturn, Optional, Union
 
 
 class DeadlineError(Exception):
@@ -38,7 +38,9 @@ class Homework:
 class Student(Human):
     """Class Student."""
 
-    def do_homework(self, hw: Homework, solution: str) -> Optional[HomeworkResult]:
+    def do_homework(
+        self, hw: Homework, solution: str
+    ) -> Union[Optional[HomeworkResult], NoReturn]:
         """Check if hw is in progress - True, else print You are Late.
 
         Args:
@@ -50,8 +52,7 @@ class Student(Human):
         """
         if Homework.is_active(hw):
             return HomeworkResult(self, hw, solution)
-        else:
-            raise DeadlineError("You are late!")
+        raise DeadlineError("You are late!")
 
 
 class Teacher(Human):
@@ -90,9 +91,8 @@ class HomeworkResult:
 
     def __init__(self, student: Student, homework: Homework, solution: str) -> None:
         self.student = student
-        if isinstance(homework, Homework):
-            self.hw = homework
-        else:
+        if not isinstance(homework, Homework):
             raise TypeError("You gave a not Homework object")
+        self.hw = homework
         self.solution = solution
         self.created = datetime.datetime.now()
