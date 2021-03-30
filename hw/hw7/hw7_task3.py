@@ -1,5 +1,5 @@
 """Homework 7.3."""
-from typing import List, Optional, Set
+from typing import List, Optional, Set, Tuple
 
 
 def check_diagonals(board: List[List]) -> Optional[bool]:
@@ -11,7 +11,7 @@ def check_diagonals(board: List[List]) -> Optional[bool]:
     return None
 
 
-def check_rows_columns(board: List[List]) -> (Set, bool):
+def check_rows_columns(board: List[List]) -> Tuple[Set, bool]:
     """Check if there is winner in rows and columns."""
     res = set()
     finished = True
