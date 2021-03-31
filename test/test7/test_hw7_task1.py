@@ -8,7 +8,7 @@ from hw.hw7.hw7_task1 import find_occurrences
 
 @pytest.fixture()
 def example_tree():
-    with open("example_tree.txt", "r") as f:
+    with open("test/test7/example_tree.txt", "r") as f:
         return json.loads(f.read())
 
 
