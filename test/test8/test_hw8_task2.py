@@ -6,7 +6,7 @@ from hw.hw8.hw8_task2 import TableData
 
 @pytest.fixture()
 def presidents():
-    return TableData("example.sqlite", "presidents")
+    return TableData("test/test8/example.sqlite", "presidents")
 
 
 def test_len(presidents):

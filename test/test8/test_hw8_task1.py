@@ -3,7 +3,7 @@ import pytest
 
 from hw.hw8.hw8_task1 import KeyValueStorage
 
-storage1 = KeyValueStorage("hw8_task1_example.txt")
+storage1 = KeyValueStorage("test/test8/hw8_task1_example.txt")
 
 
 @pytest.mark.parametrize(
@@ -29,4 +29,4 @@ def test_key_value_storage_item(att, expected):
 
 def test_key_value_storage_with_exceptions():
     with pytest.raises(ValueError, match="Attribute cannot be an integer"):
-        KeyValueStorage("hw8_task1_example_with_exceptions.txt")
+        KeyValueStorage("test/test8/hw8_task1_example_with_exceptions.txt")
