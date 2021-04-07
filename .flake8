@@ -19,6 +19,8 @@ per-file-ignores =
     hw/hw6/hw6_task1.py: R504
     # Skip unused imports in __init__ files
     __init__.py: F401
+    # Skip SQL injection check:
+    hw/hw8/hw8_task2.py: S608
 
 # Import order https://pypi.org/project/flake8-import-order/
 application-import-names = hw
