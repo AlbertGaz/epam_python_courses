@@ -22,11 +22,8 @@ class TableData:
         """Check if item with same name exists in table."""
         with sqlite3.connect(self.database_name) as conn:
             cursor = conn.cursor()
-        if cursor.execute(
-            f"SELECT * from {self.table_name} where name = ?", (item,)
-        ).fetchone():
-            return True
-        return False
+        cmnd = f"SELECT * from {self.table_name} where name = ?"
+        return bool(cursor.execute(cmnd, (item,)).fetchone())
 
     def __getitem__(self, item: str) -> Union[str, tuple]:
         """Return single data row for table row with name item."""
@@ -34,7 +31,8 @@ class TableData:
             cursor = conn.cursor()
         if item == "name":
             return self.curr[0]
-        cursor.execute(f"SELECT * from {self.table_name} where name = ?", (item,))
+        cmnd = f"SELECT * from {self.table_name} where name = ?"
+        cursor.execute(cmnd, (item,))
         if row := cursor.fetchone():
             return row
         raise KeyError(f"Key {item} not found")
@@ -51,10 +49,8 @@ class TableData:
             cursor.execute(f"SELECT * from {self.table_name} order by name asc limit 1")
             self.curr = cursor.fetchone()
             return self
-        cursor.execute(
-            f"SELECT * from {self.table_name} where name > ? order by name limit 1",
-            (self.curr[0],),
-        )
+        cmnd = f"SELECT * from {self.table_name} where name > ? order by name limit 1"
+        cursor.execute(cmnd, (self.curr[0],))
         self.curr = cursor.fetchone()
         if not self.curr:
             raise StopIteration

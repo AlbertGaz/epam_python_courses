@@ -21,6 +21,19 @@ def test_not_contains(presidents):
     assert "Albert Gazaryan" not in presidents
 
 
+def test_item_exist(presidents):
+    assert presidents["Vladimir Putin"] == (
+        "Vladimir Putin",
+        "Russian Federation",
+        2000,
+    )
+
+
+def test_item_dont_exist(presidents):
+    with pytest.raises(KeyError, match="Key Albert Gazaryan not found"):
+        presidents["Albert Gazaryan"]
+
+
 def test_iter(presidents):
     presidents_names = [president["name"] for president in presidents]
     assert presidents_names == ["Joe Biden", "Vladimir Putin", "Xi Jinping"]
