@@ -10,29 +10,22 @@ class KeyValueStorage:
         with open(filepath, "r") as f:
             text = f.read()
         for key, value in [pair.split("=") for pair in text.split()]:
-            KeyValueStorage.check_is_key_int(key)
-            value = KeyValueStorage.make_value_an_int_if_needed(value)
+
+            key, value = KeyValueStorage.is_int(key), KeyValueStorage.is_int(value)
+
+            if isinstance(key, int):
+                raise ValueError("Attribute cannot be an integer!")
+
             if key not in self.dic:
                 self.dic[key] = value
 
     @classmethod
-    def check_is_key_int(cls: Any, key: str) -> None:
+    def is_int(cls: Any, k_or_v: str) -> Union[int, str]:
         """Check if key is integer. If True - raises valueerror."""
         try:
-            key = int(key)
+            return int(k_or_v)
         except ValueError:
-            pass
-
-        if isinstance(key, int):
-            raise ValueError("Attribute cannot be an integer!")
-
-    @classmethod
-    def make_value_an_int_if_needed(cls: Any, value: str) -> Union[int, str]:
-        """Return int type of value if it is int in str, else return str value."""
-        try:
-            return int(value)
-        except ValueError:
-            return value
+            return k_or_v
 
     def __getattr__(self, key: str) -> Union[str, int]:
         """Make it possible to get attribute by .."""
