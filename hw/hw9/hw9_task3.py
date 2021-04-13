@@ -10,7 +10,7 @@ def universal_file_counter(
     """Count lines or tokens in all files with that extension."""
     file_name_list = os.listdir(dir_path)
     files_true_ext = [
-        open(str(dir_path) + "\\" + file)
+        open(str(dir_path) + "/" + file)
         for file in file_name_list
         if file.endswith(file_extension)
     ]
