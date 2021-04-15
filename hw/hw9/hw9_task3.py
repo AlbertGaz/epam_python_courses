@@ -14,13 +14,8 @@ def universal_file_counter(
         for file in file_name_list
         if file.endswith(file_extension)
     ]
+    rows = [row for f in files_true_ext for row in f.readlines()]
     if not tokenizer:
-        return len([row for f in files_true_ext for row in f.readlines()])
-    return len(
-        [
-            token
-            for f in files_true_ext
-            for row in f.readlines()
-            for token in tokenizer(row)
-        ]
-    )
+        return len(rows)
+    tokens = [token for row in rows for token in tokenizer(row)]
+    return len(tokens)
