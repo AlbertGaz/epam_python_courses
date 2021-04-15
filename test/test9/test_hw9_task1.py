@@ -12,9 +12,9 @@ def file_list():
     f2 = open("file2.txt", "w")
     f3 = open("file3.txt", "w")
 
-    f1.write("1\n4\n70\n100\n")
-    f2.write("2\n5\n8\n11\n")
-    f3.write("3\n6\n9\n12\n")
+    f1.write("1\n100\n")
+    f2.write("-4\n150\n")
+    f3.write("3\n1200\n")
 
     f1.close()
     f2.close()
@@ -27,17 +27,4 @@ def test_merge(file_list):
     actual_result = list(merge_sorted_files(file_list))
     for file in ("file1.txt", "file2.txt", "file3.txt"):
         os.remove(file)
-    assert actual_result == [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "8",
-        "9",
-        "11",
-        "12",
-        "70",
-        "100",
-    ]
+    assert actual_result == [-4, 1, 3, 100, 150, 1200]
