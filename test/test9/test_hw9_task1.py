@@ -25,9 +25,8 @@ def file_list():
 
 def test_merge(file_list):
     actual_result = list(merge_sorted_files(file_list))
-    os.remove("file1.txt")
-    os.remove("file2.txt")
-    os.remove("file3.txt")
+    for file in ("file1.txt", "file2.txt", "file3.txt"):
+        os.remove(file)
     assert actual_result == [
         "1",
         "2",
