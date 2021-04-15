@@ -8,12 +8,18 @@ from hw.hw9.hw9_task1 import merge_sorted_files
 
 @pytest.fixture()
 def file_list():
-    with open("file1.txt", "w") as f1, open("file2.txt", "w") as f2, open(
-        "file3.txt", "w"
-    ) as f3:
-        f1.write("1\n4\n7\n10\n")
-        f2.write("2\n5\n8\n11\n")
-        f3.write("3\n6\n9\n12\n")
+    f1 = open("file1.txt", "w")
+    f2 = open("file2.txt", "w")
+    f3 = open("file3.txt", "w")
+
+    f1.write("1\n4\n70\n100\n")
+    f2.write("2\n5\n8\n11\n")
+    f3.write("3\n6\n9\n12\n")
+
+    f1.close()
+    f2.close()
+    f3.close()
+
     return ["file1.txt", "file2.txt", "file3.txt"]
 
 
@@ -29,10 +35,10 @@ def test_merge(file_list):
         "4",
         "5",
         "6",
-        "7",
         "8",
         "9",
-        "10",
         "11",
         "12",
+        "70",
+        "100",
     ]
