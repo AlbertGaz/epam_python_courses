@@ -6,19 +6,18 @@ import pytest
 from hw.hw9.hw9_task1 import merge_sorted_files
 
 
+def write_to_file(file_name, text):
+    f = open(file_name, "w")
+    f.write(text)
+    f.close()
+
+
 @pytest.fixture()
 def file_list():
-    f1 = open("file1.txt", "w")
-    f2 = open("file2.txt", "w")
-    f3 = open("file3.txt", "w")
 
-    f1.write("1\n100\n")
-    f2.write("-4\n150\n")
-    f3.write("3\n1200\n")
-
-    f1.close()
-    f2.close()
-    f3.close()
+    write_to_file("file1.txt", "1\n100\n")
+    write_to_file("file2.txt", "-4\n150\n")
+    write_to_file("file3.txt", "3\n1200\n")
 
     return ["file1.txt", "file2.txt", "file3.txt"]
 
