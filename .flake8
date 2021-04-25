@@ -21,6 +21,9 @@ per-file-ignores =
     __init__.py: F401
     # Skip SQL injection check:
     hw/hw8/hw8_task2.py: S608
+    # Skip S405, S314
+    hw/hw10/hw10_task1.py: S314, S405
+
 # Import order https://pypi.org/project/flake8-import-order/
 application-import-names = hw
 import-order-style = pycharm

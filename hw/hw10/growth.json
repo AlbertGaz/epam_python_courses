@@ -1,0 +1,52 @@
+[
+    {
+        "code": "TSLA",
+        "name": "Tesla",
+        "growth": 408.2
+    },
+    {
+        "code": "LB",
+        "name": "L Brands Inc",
+        "growth": 382.01
+    },
+    {
+        "code": "FCX",
+        "name": "Freeport-McMoRan Inc",
+        "growth": 358.46
+    },
+    {
+        "code": "GPS",
+        "name": "Gap Inc.",
+        "growth": 243.74
+    },
+    {
+        "code": "ENPH",
+        "name": "Enphase Energy Inc",
+        "growth": 227.62
+    },
+    {
+        "code": "ALGN",
+        "name": "Align Technology Inc.",
+        "growth": 224.2
+    },
+    {
+        "code": "TPR",
+        "name": "Tapestry",
+        "growth": 196.3
+    },
+    {
+        "code": "IVZ",
+        "name": "Invesco Ltd",
+        "growth": 193.16
+    },
+    {
+        "code": "DFS",
+        "name": "Discover Financial Services",
+        "growth": 192.01
+    },
+    {
+        "code": "URI",
+        "name": "United Rentals Inc.",
+        "growth": 187.09
+    }
+]
