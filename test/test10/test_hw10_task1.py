@@ -23,7 +23,7 @@ def snp_500_stock_page():
 
 @pytest.fixture()
 def centrobank_exchange_page():
-    with open("test/test10/xmlfile.xml") as f:
+    with open("test/test10/xmlfile.xml", encoding="utf-8") as f:
         text = f.read()
         return BeautifulSoup(text, "html.parser")
 
