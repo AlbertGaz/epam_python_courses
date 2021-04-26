@@ -85,37 +85,56 @@ def make_dict(name: str, code: str, item_name: str, item: Union[str, float]) -> 
     return {"name": name, "code": code, item_name: item}
 
 
-def parse_stock_page(html: str, y_growth: str) -> StockData:
-    """Parse single stock page to get price, pe, profit, code, name."""
-    soup = BeautifulSoup(html, "html.parser")
-
+def get_name_code(soup: BeautifulSoup) -> Tuple:
+    """Get name code of stock."""
     name = soup.find("span", {"class": "price-section__label"}).text.strip()
-
     code = soup.find("span", {"class": "price-section__category"}).text.strip()[8:]
+    return name, code
 
-    price_raw = soup.find("span", {"class": "price-section__current-value"}).text
-    price = float(price_raw.replace(",", "")) * usd_rate
 
+def get_price(soup: BeautifulSoup) -> float:
+    """Get price of stock."""
+    _price = soup.find("span", {"class": "price-section__current-value"}).text
+    return float(_price.replace(",", "")) * usd_rate
+
+
+def get_profit(soup: BeautifulSoup) -> float:
+    """Get and calculate potential profit for single stock."""
     tag_price_low = "snapshot__data-item snapshot__data-item--small"
     price_low_raw = soup.find_all("div", {"class": tag_price_low})[-1].text.split()[0]
     price_low = price_low_raw.replace(",", "")
 
-    tag_price_high_list = (
+    tag_p_h = (
         "snapshot__data-item snapshot__data-item--small snapshot__data-item--right"
     )
-    price_high_raw = soup.find_all("div", {"class": tag_price_high_list})[
-        -1
-    ].text.split()[0]
-    price_high = price_high_raw.replace(",", "")
-    profit_ratio = 100 * (float(price_high) - float(price_low)) / float(price_low)
+    _price_high_raw = soup.find_all("div", {"class": tag_p_h})
+    _price_high_raw = _price_high_raw[-1].text.split()[0]
+    price_high = _price_high_raw.replace(",", "")
+    profit_ratio = (float(price_high) - float(price_low)) / float(price_low)
+    return 100 * profit_ratio
 
-    pe_raw = soup.find_all("div", {"class": "snapshot__data-item"})[8].text.split()[0]
-    pe = pe_raw.replace(",", "")
+
+def get_pe(soup: BeautifulSoup) -> float:
+    """Get P/E for stock."""
+    _pe_raw = soup.find_all("div", {"class": "snapshot__data-item"})
+    _pe_raw = _pe_raw[8].text.split()[0]
+    pe = _pe_raw.replace(",", "")
+    return float(pe)
+
+
+def parse_stock_page(html: str, y_growth: str) -> StockData:
+    """Parse single stock page to get price, pe, profit, code, name."""
+    soup = BeautifulSoup(html, "html.parser")
+
+    name, code = get_name_code(soup)
+    price = get_price(soup)
+    profit = get_profit(soup)
+    pe = get_pe(soup)
 
     stock_data = StockData([], [], [], [])
     stock_data.price.append(make_dict(name, code, "price", price))
     stock_data.pe.append(make_dict(name, code, "P_E", float(pe)))
-    stock_data.profit.append(make_dict(name, code, "potential profit", profit_ratio))
+    stock_data.profit.append(make_dict(name, code, "potential profit", profit))
     stock_data.growth.append(make_dict(name, code, "growth", float(y_growth[:-1])))
 
     return stock_data
