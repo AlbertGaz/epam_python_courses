@@ -1,0 +1,52 @@
+[
+    {
+        "name": "L Brands Inc",
+        "code": "LB",
+        "potential profit": 577.9661016949153
+    },
+    {
+        "name": "Tesla",
+        "code": "TSLA",
+        "potential profit": 559.0952346094722
+    },
+    {
+        "name": "Enphase Energy Inc",
+        "code": "ENPH",
+        "potential profit": 520.5093470604173
+    },
+    {
+        "name": "Gap Inc.",
+        "code": "GPS",
+        "potential profit": 427.8287461773701
+    },
+    {
+        "name": "Freeport-McMoRan Inc",
+        "code": "FCX",
+        "potential profit": 400.64020486555705
+    },
+    {
+        "name": "Invesco Ltd",
+        "code": "IVZ",
+        "potential profit": 324.294670846395
+    },
+    {
+        "name": "Discovery Communications Inc  (A)",
+        "code": "DISCA",
+        "potential profit": 321.0129310344828
+    },
+    {
+        "name": "Tapestry",
+        "code": "TPR",
+        "potential profit": 309.02777777777777
+    },
+    {
+        "name": "Discovery Communications Inc  (C)",
+        "code": "DISCK",
+        "potential profit": 297.0238095238096
+    },
+    {
+        "name": "Occidental Petroleum Corp.",
+        "code": "OXY",
+        "potential profit": 281.6901408450705
+    }
+]
