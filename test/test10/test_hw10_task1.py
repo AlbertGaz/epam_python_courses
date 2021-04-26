@@ -10,23 +10,20 @@ from hw.hw10.hw10_task1 import parse_stock_page
 
 @pytest.fixture()
 def snp_500_main_page1():
-    # with open("test/test10/snp_500_main_page1.html") as f:
-    with open("snp_500_main_page1.html") as f:
+    with open("test/test10/snp_500_main_page1.html") as f:
         text = f.read()
         return BeautifulSoup(text, "html.parser")
 
 
 @pytest.fixture()
 def snp_500_stock_page():
-    # with open("test/test10/snp_500_stock_page_3M.html") as f:
-    with open("snp_500_stock_page_3M.html") as f:
+    with open("test/test10/snp_500_stock_page_3M.html") as f:
         return f.read()
 
 
 @pytest.fixture()
 def centrobank_exchange_page():
-    # with open("test/test10/xmlfile.xml", "rb") as f:
-    with open("xmlfile.xml", "rb") as f:
+    with open("test/test10/xmlfile.xml", "rb") as f:
         text = f.read()
         return BeautifulSoup(text, "html.parser")
 
