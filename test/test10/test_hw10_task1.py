@@ -42,9 +42,11 @@ def test_get_growth(snp_500_main_page1):
 
 def test_parse_stock(snp_500_stock_page):
     data = parse_stock_page(snp_500_stock_page, "50%")
-    assert data.price == [{"name": "3M Co.", "code": "MMM", "price": 15155.4736}]
+    assert data.price == [
+        {"name": "3M Co.", "code": "MMM", "price": 15190.135299999998}
+    ]
 
 
 def test_get_usd_rate(centrobank_exchange_page):
     usd_rate = get_curr_usd_rate()
-    assert usd_rate == 74.768
+    assert usd_rate == 74.939
